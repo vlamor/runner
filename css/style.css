@@ -16,6 +16,15 @@ html,
 .container {
   margin: auto;
   text-align: center;
+  display: block;
+}
+
+.imageBox
+{
+  width: 600px;
+  height: auto;
+  position: relative;
+  display: block;
 }
 
 .title {
