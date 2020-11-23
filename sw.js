@@ -33,6 +33,9 @@ self.addEventListener("activate", (event) => {
       }
     })()
   );
+  // Tell the active service worker to take control of the page immediately.
+  self.clients.claim();
+});
 
 /* Serve cached content when offline */
 self.addEventListener('fetch', function(e) {
@@ -41,5 +44,4 @@ self.addEventListener('fetch', function(e) {
       return response || fetch(e.request);
     })
   );
-  console.log("[Service worker] fetch");
 });
