@@ -13,15 +13,18 @@ var filesToCache = [
   './js/main.js'
 ];
 
+
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
+      return cache.addAll(filesToCache).then(function() {
+        self.skipWaiting();})
     })
   );
   console.log("[Service worker] install");
 });
+
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
