@@ -1,8 +1,6 @@
 // Incrementing OFFLINE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 const OFFLINE_VERSION = 1;
-// Customize this with a different URL if needed.
-const OFFLINE_URL = "./index.html";
 
 console.log("sw.js")
 var cacheName = 'runner';
