@@ -1,5 +1,11 @@
+// Incrementing OFFLINE_VERSION will kick off the install event and force
+// previously cached resources to be updated from the network.
+const OFFLINE_VERSION = 1;
+// Customize this with a different URL if needed.
+const OFFLINE_URL = "./index.html";
+
 console.log("sw.js")
-var cacheName = 'hello-pwa';
+var cacheName = 'runner';
 var filesToCache = [
   './',
   './index.html',
@@ -16,6 +22,17 @@ self.addEventListener('install', function(e) {
   );
   console.log("[Service worker] install");
 });
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    (async () => {
+      // Enable navigation preload if it's supported.
+      // See https://developers.google.com/web/updates/2017/02/navigation-preload
+      if ("navigationPreload" in self.registration) {
+        await self.registration.navigationPreload.enable();
+      }
+    })()
+  );
 
 /* Serve cached content when offline */
 self.addEventListener('fetch', function(e) {
