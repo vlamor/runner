@@ -44,6 +44,7 @@ parseValue = (value) => {
   }
 
 var deviceInfo = document.getElementById('Device')
+var rrInfo     = document.getElementById('rrValue')
 deviceInfo.innerText = "Device #13th"
 function SearchBT()
 {
@@ -71,12 +72,16 @@ function SearchBT()
 
   function handleCharacteristicValueChanged(event) {
     var value = event.target.value;
-    var res = parseValue(value).heartRate;
-    deviceInfo.innerHTML = res;
+    var res = parseValue(value);
+    var bpm = res.heartRate;
+    var rrData  = res.rrIntervals;
+    deviceInfo.innerHTML = bpm;
+    rrInfo.innerHTML     = rrData;
     isSpeak = true;
-    if(res > 90)
+    if(bpm > 90)
     {
-        speechSynthesis.speak(new SpeechSynthesisUtterance("res"));
+        console.log('High heart rate')
+        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
         isSpeak = false;
     }
     else
