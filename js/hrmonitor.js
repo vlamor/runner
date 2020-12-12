@@ -44,7 +44,7 @@ parseValue = (value) => {
   }
 
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #12th"
+deviceInfo.innerText = "Device #13th"
 function SearchBT()
 {
     //deviceInfo.innerText +=" CLicked\n";
@@ -74,7 +74,7 @@ function SearchBT()
     var res = parseValue(value).heartRate;
     deviceInfo.innerHTML = res;
     isSpeak = true;
-    if(res > 90 && isSpeak)
+    if(res > 90)
     {
         speechSynthesis.speak(new SpeechSynthesisUtterance("res"));
         isSpeak = false;
