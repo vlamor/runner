@@ -10,7 +10,7 @@ console.log("hrmonitor.js")
     ]
 }*/
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #4th"
+deviceInfo.innerText = "Device #5th"
 function SearchBT()
 {
     deviceInfo.innerText +=" CLicked";
