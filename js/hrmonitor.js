@@ -10,7 +10,7 @@ var options =
     ]
 }
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #7th"
+deviceInfo.innerText = "Device #8th"
 function SearchBT()
 {
     deviceInfo.innerText +=" CLicked\n";
