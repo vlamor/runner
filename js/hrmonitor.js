@@ -44,7 +44,7 @@ parseValue = (value) => {
   }
 
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #9th"
+deviceInfo.innerText = "Device #10th"
 function SearchBT()
 {
     //deviceInfo.innerText +=" CLicked\n";
@@ -72,6 +72,7 @@ function SearchBT()
   function handleCharacteristicValueChanged(event) {
     var value = event.target.value;
     deviceInfo.innerHTML = parseValue(value);
+    console.log(parseValue(value));
   }
 
 }
