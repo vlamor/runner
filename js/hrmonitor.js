@@ -71,8 +71,18 @@ function SearchBT()
 
   function handleCharacteristicValueChanged(event) {
     var value = event.target.value;
-    var res = parseValue(value);
-    deviceInfo.innerHTML = res.heartRate;
+    var res = parseValue(value).heartRate;
+    deviceInfo.innerHTML = res;
+    isSpeak = true;
+    if(res > 90 && isSpeak)
+    {
+        speechSynthesis.speak(new SpeechSynthesisUtterance("res"));
+        isSpeak = false;
+    }
+    else
+    {
+        
+    }
     //console.log(parseValue(value));
   }
 
