@@ -21,9 +21,24 @@ function SearchBT()
     deviceInfo.innerHTML += device.name;  
     return device.gatt.connect();
   })
-  .catch(error => {
-    console.log('Argh! ' + error);
-  });
+  .then(server => {
+    return server.getPrimaryService('heart_rate');
+  })
+  .then(service => {
+    return service.getCharacteristic('heart_rate_measurement');
+  })
+  .then(characteristic => characteristic.startNotifications())
+  .then(characteristic => {
+    characteristic.addEventListener(
+      'characteristicvaluechanged', handleCharacteristicValueChanged
+    );
+  })
+  .catch(error => { console.log(error); });
+
+  function handleCharacteristicValueChanged(event) {
+    var value = event.target.value;
+    deviceInfo.innerHTML = parseValue(value);
+  }
 
 }
 
