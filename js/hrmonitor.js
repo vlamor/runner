@@ -1,6 +1,6 @@
 console.log("hrmonitor.js")
 
-/*var options = 
+var options = 
 {
     filters:
     [
@@ -8,13 +8,13 @@ console.log("hrmonitor.js")
             services:[ 'heart_rate' ]
         }
     ]
-}*/
+}
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #5th"
+deviceInfo.innerText = "Device #6th"
 function SearchBT()
 {
     deviceInfo.innerText +=" CLicked";
-navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //options
+navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
   .then(device => {
     console.log('> Name:             ' + device.name);
     deviceInfo.innerText += device.name;
