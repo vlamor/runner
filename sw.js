@@ -1,6 +1,6 @@
 // Incrementing OFFLINE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
-const OFFLINE_VERSION = 1;
+const OFFLINE_VERSION = 1.0;
 
 console.log("sw.js")
 var cacheName = 'runner';
@@ -9,7 +9,8 @@ var filesToCache =
   './',
   './index.html',
   './css/style.css',
-  './js/main.js'
+  './js/main.js',
+  './js/hrmonitor.js'
 ];
 
 

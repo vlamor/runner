@@ -44,7 +44,7 @@ parseValue = (value) => {
   }
 
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #11th"
+deviceInfo.innerText = "Device #12th"
 function SearchBT()
 {
     //deviceInfo.innerText +=" CLicked\n";
