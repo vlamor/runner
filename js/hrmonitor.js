@@ -14,7 +14,7 @@ deviceInfo.innerText = "Device #1s"
 navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //options
   .then(device => {
     log('> Name:             ' + device.name);
-    deviceInfo.innerText = device.name;
+    //deviceInfo.innerText = device.name;
     log('> Id:               ' + device.id);
     log('> Connected:        ' + device.gatt.connected);
   })
