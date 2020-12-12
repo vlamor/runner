@@ -4,7 +4,8 @@ const OFFLINE_VERSION = 1;
 
 console.log("sw.js")
 var cacheName = 'runner';
-var filesToCache = [
+var filesToCache = 
+[
   './',
   './index.html',
   './css/style.css',
@@ -13,9 +14,11 @@ var filesToCache = [
 
 
 /* Start the service worker and cache all of the app's content */
-self.addEventListener('install', function(e) {
+self.addEventListener('install', function(e)
+{
   e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
+    caches.open(cacheName).then(function(cache) 
+    {
       return cache.addAll(filesToCache)
     })
   );
