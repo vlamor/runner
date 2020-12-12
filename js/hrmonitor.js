@@ -10,7 +10,7 @@ console.log("hrmonitor.js")
     ]
 }*/
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device"
+deviceInfo.innerText = "Device #1s"
 navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //options
   .then(device => {
     log('> Name:             ' + device.name);
