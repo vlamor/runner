@@ -1,3 +1,5 @@
+console.log("hrmonitor.js")
+
 var options = 
 {
     filters:
