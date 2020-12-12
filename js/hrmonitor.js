@@ -19,6 +19,6 @@ navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //opt
     console.log('> Connected:        ' + device.gatt.connected);
   })
   .catch(error => {
-    log('Argh! ' + error);
+    console.log('Argh! ' + error);
   });
 
