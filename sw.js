@@ -38,10 +38,14 @@ self.addEventListener("activate", (event) => {
 });
 
 /* Serve cached content when offline */
-self.addEventListener('fetch', function(e) {
+self.addEventListener('fetch', function(e) 
+{
   e.respondWith(
-    caches.match(e.request).then(function(response) {
+    caches.match(e.request).then(function(response) 
+    {
       return response || fetch(e.request);
-    })
+    }
+    )
   );
-});
+}
+);
