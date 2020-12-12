@@ -13,7 +13,7 @@ var deviceInfo = document.getElementById('Device')
 deviceInfo.innerText = "Device #8th"
 function SearchBT()
 {
-    deviceInfo.innerText +=" CLicked\n";
+    //deviceInfo.innerText +=" CLicked\n";
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
   .then((device) => 
   {
