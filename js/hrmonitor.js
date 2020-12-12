@@ -10,6 +10,7 @@ var options =
         }
     ]
 }
+var isSpeak = true;
 
 parseValue = (value) => {
     // В Chrome 50+ используется DataView.
@@ -45,7 +46,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #13th"
+deviceInfo.innerText = "Device #14th"
 function SearchBT()
 {
     //deviceInfo.innerText +=" CLicked\n";
@@ -77,8 +78,8 @@ function SearchBT()
     var rrData  = res.rrIntervals;
     deviceInfo.innerHTML = bpm;
     rrInfo.innerHTML     = rrData;
-    isSpeak = true;
-    if(bpm > 90)
+    
+    if(bpm > 90 && isSpeak)
     {
         console.log('High heart rate')
         speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
@@ -86,7 +87,7 @@ function SearchBT()
     }
     else
     {
-        
+        isSpeak = true;        
     }
     //console.log(parseValue(value));
   }
