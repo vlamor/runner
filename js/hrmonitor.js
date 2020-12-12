@@ -10,11 +10,11 @@ console.log("hrmonitor.js")
     ]
 }*/
 var deviceInfo = document.getElementById('Device')
-deviceInfo.innerText = "Device #3"
+deviceInfo.innerText = "Device #4th"
 function SearchBT()
 {
     deviceInfo.innerText +=" CLicked";
-/*navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //options
+navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]}) //options
   .then(device => {
     console.log('> Name:             ' + device.name);
     deviceInfo.innerText += "inside bluetooth";//device.name;
@@ -24,6 +24,6 @@ function SearchBT()
   .catch(error => {
     console.log('Argh! ' + error);
   });
-*/
+
 }
 
