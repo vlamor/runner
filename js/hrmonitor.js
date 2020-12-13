@@ -11,7 +11,8 @@ var options =
     ]
 }
 
-var isSpeak = true;
+var highHR = true;
+var lowHR = true;
 
 parseValue = (value) => {
     // В Chrome 50+ используется DataView.
@@ -47,7 +48,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #19th"
+deviceInfo.innerText = "Device #20th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
@@ -81,15 +82,18 @@ function SearchBT()
     deviceInfo.innerHTML = bpm;
     rrInfo.innerHTML     = rrData;
     
-    if(bpm > 90 && isSpeak)
+    if(bpm > 90 && highHR)
     {
-        console.log(`High heart rate  ${isSpeak}`);
-        isSpeak = false;
-        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
+        console.log(`High heart rate  ${highHR}`);
+        highHR = false;
+        lowHR  = true;
+        speechSynthesis.speak(new SpeechSynthesisUtterance("High heart rate. Slow down"));
     }
-    else if(bpm < 90)
+    else if(bpm < 90 && lowHR )
     {
-        isSpeak = true;        
+        speechSynthesis.speak(new SpeechSynthesisUtterance("Correct heart rate."));
+        highHR = true;       
+        lowHR  = false; 
     }
     //console.log(parseValue(value));
   }
