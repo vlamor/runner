@@ -46,7 +46,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #16th"
+deviceInfo.innerText = "Device #17th"
 function SearchBT()
 {
     //deviceInfo.innerText +=" CLicked\n";
@@ -81,8 +81,8 @@ function SearchBT()
     
     if(bpm > 90 && isSpeak)
     {
-        isSpeak = false;
         console.log('High heart rate' + '  ' + isSpeak);
+        isSpeak = false;
         speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
     }
     else
