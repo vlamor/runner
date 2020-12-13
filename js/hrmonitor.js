@@ -47,7 +47,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #18th"
+deviceInfo.innerText = "Device #19th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
@@ -83,13 +83,13 @@ function SearchBT()
     
     if(bpm > 90 && isSpeak)
     {
-        console.log('High heart rate' + '  ' + isSpeak);
+        console.log(`High heart rate  ${isSpeak}`);
         isSpeak = false;
         speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
     }
-    else
+    else if(bpm < 90)
     {
-//        isSpeak = true;        
+        isSpeak = true;        
     }
     //console.log(parseValue(value));
   }
