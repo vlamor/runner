@@ -10,6 +10,7 @@ var options =
         }
     ]
 }
+
 var isSpeak = true;
 
 parseValue = (value) => {
@@ -46,30 +47,31 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #17th"
+deviceInfo.innerText = "Device #18th"
 function SearchBT()
 {
-    //deviceInfo.innerText +=" CLicked\n";
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
-  .then((device) => 
-  {
-    console.log(device.name);
-    deviceInfo.innerHTML += device.name;  
-    return device.gatt.connect();
-  })
-  .then(server => {
+    .then((device) => 
+    {
+        console.log(device.name);
+        deviceInfo.innerHTML += device.name;  
+        return device.gatt.connect();
+    })
+    .then(server => 
+    {
     return server.getPrimaryService('heart_rate');
-  })
-  .then(service => {
-    return service.getCharacteristic('heart_rate_measurement');
-  })
-  .then(characteristic => characteristic.startNotifications())
-  .then(characteristic => {
-    characteristic.addEventListener(
-      'characteristicvaluechanged', handleCharacteristicValueChanged
+    })
+    .then(service => 
+    {
+        return service.getCharacteristic('heart_rate_measurement');
+    })
+    .then(characteristic => characteristic.startNotifications())
+    .then(characteristic => {
+        characteristic.addEventListener(
+        'characteristicvaluechanged', handleCharacteristicValueChanged
     );
-  })
-  .catch(error => { console.log(error); });
+    })
+    .catch(error => { console.log(error); });
 
   function handleCharacteristicValueChanged(event) {
     var value = event.target.value;
@@ -87,7 +89,7 @@ function SearchBT()
     }
     else
     {
-        isSpeak = true;        
+//        isSpeak = true;        
     }
     //console.log(parseValue(value));
   }
