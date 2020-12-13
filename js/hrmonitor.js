@@ -82,7 +82,7 @@ function SearchBT()
     if(bpm > 90 && isSpeak)
     {
         isSpeak = false;
-        console.log('High heart rate')
+        console.log('High heart rate' + '  ' + isSpeak);
         speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
     }
     else
