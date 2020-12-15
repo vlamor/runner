@@ -100,10 +100,12 @@ function SearchBT()
     //console.log(parseValue(value));
   }
 
+  var 
   function WriteBpm(bpm)
   {
     var today  = new Date();
     time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    localStorage.setItem("mykey","myvalue");
     return time;
   }
 
