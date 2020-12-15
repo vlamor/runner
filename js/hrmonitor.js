@@ -50,7 +50,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #20th"
+deviceInfo.innerText = "Device #21th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
@@ -81,7 +81,7 @@ function SearchBT()
     var res = parseValue(value);
     var bpm = res.heartRate;
     var rrData  = res.rrIntervals;
-    deviceInfo.innerHTML = bpm + " " + WriteBpm;
+    deviceInfo.innerHTML = bpm + " " + WriteBpm(bpm);
     rrInfo.innerHTML     = rrData;
     
     if(bpm > 90 && highHR)
