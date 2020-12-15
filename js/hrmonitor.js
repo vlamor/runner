@@ -12,7 +12,9 @@ var options =
 }
 
 var highHR = true;
-var lowHR = true;
+var lowHR  = true;
+var today  = new Date();
+var time;
 
 parseValue = (value) => {
     // В Chrome 50+ используется DataView.
@@ -79,7 +81,7 @@ function SearchBT()
     var res = parseValue(value);
     var bpm = res.heartRate;
     var rrData  = res.rrIntervals;
-    deviceInfo.innerHTML = bpm;
+    deviceInfo.innerHTML = bpm + " " + WriteBpm;
     rrInfo.innerHTML     = rrData;
     
     if(bpm > 90 && highHR)
@@ -87,15 +89,21 @@ function SearchBT()
         console.log(`High heart rate  ${highHR}`);
         highHR = false;
         lowHR  = true;
-        speechSynthesis.speak(new SpeechSynthesisUtterance("High heart rate. Slow down"));
+        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
     }
     else if(bpm < 90 && lowHR )
     {
-        speechSynthesis.speak(new SpeechSynthesisUtterance("Correct heart rate."));
+        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
         highHR = true;       
         lowHR  = false; 
     }
     //console.log(parseValue(value));
+  }
+
+  function WriteBpm(bpm)
+  {
+    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    return time;
   }
 
 }
