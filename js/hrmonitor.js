@@ -13,7 +13,7 @@ var options =
 
 var highHR = true;
 var lowHR  = true;
-var today  = new Date();
+
 var time;
 
 parseValue = (value) => {
@@ -50,7 +50,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #21th"
+deviceInfo.innerText = "Device #1th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
@@ -102,6 +102,7 @@ function SearchBT()
 
   function WriteBpm(bpm)
   {
+    var today  = new Date();
     time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     return time;
   }
