@@ -117,7 +117,7 @@ function Stop()
   for (var i = 0; i < localStorage.length; i++)
   {
     //document.body.append(localStorage.getItem(localStorage.key(i)));
-    console.log(localStorage.getItem(localStorage.key(i)));
+    console.log(`${localStorage.getItem(localStorage.key(i))}`);
   }
   localStorage.clear();
 }
