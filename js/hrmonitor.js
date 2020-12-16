@@ -50,7 +50,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #2th"
+deviceInfo.innerText = "Device #3th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
@@ -114,6 +114,10 @@ function WriteBpm(bpm)
 function Stop()
 {
   console.log(localStorage.length);
+  for (var i = 0; i < localStorage.length; i++)
+  {
+    document.body.append(localStorage.getItem(localStorage.key(i)));
+  }
   localStorage.clear();
 }
 
