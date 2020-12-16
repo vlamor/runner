@@ -75,39 +75,45 @@ function SearchBT()
     );
     })
     .catch(error => { console.log(error); });
+}
 
-  function handleCharacteristicValueChanged(event) {
-    var value = event.target.value;
-    var res = parseValue(value);
-    var bpm = res.heartRate;
-    var rrData  = res.rrIntervals;
-    deviceInfo.innerHTML = bpm + " " + WriteBpm(bpm);
-    rrInfo.innerHTML     = rrData;
-    
-    if(bpm > 90 && highHR)
-    {
-        console.log(`High heart rate  ${highHR}`);
-        highHR = false;
-        lowHR  = true;
-        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
-    }
-    else if(bpm < 90 && lowHR )
-    {
-        speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
-        highHR = true;       
-        lowHR  = false; 
-    }
-    //console.log(parseValue(value));
-  }
-
-  var 
-  function WriteBpm(bpm)
+function handleCharacteristicValueChanged(event) {
+  var value = event.target.value;
+  var res = parseValue(value);
+  var bpm = res.heartRate;
+  var rrData  = res.rrIntervals;
+  deviceInfo.innerHTML = bpm + " " + WriteBpm(bpm);
+  rrInfo.innerHTML     = rrData;
+  
+  if(bpm > 90 && highHR)
   {
-    var today  = new Date();
-    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    localStorage.setItem("mykey","myvalue");
-    return time;
+      console.log(`High heart rate  ${highHR}`);
+      highHR = false;
+      lowHR  = true;
+      speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
   }
+  else if(bpm < 90 && lowHR )
+  {
+      speechSynthesis.speak(new SpeechSynthesisUtterance(bpm));
+      highHR = true;       
+      lowHR  = false; 
+  }
+  //console.log(parseValue(value));
+}
+var data = [];
+function WriteBpm(bpm)
+{
+  var today  = new Date();
+  
+  time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  
+  localStorage.setItem(time,bmp);
+  return time;
+}
 
+function Stop()
+{
+  console.log(localStorage.length);
+  localStorage.clear();
 }
 
