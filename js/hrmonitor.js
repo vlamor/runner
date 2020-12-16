@@ -50,7 +50,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #1th"
+deviceInfo.innerText = "Device #2th"
 function SearchBT()
 {
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
