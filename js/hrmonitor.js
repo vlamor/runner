@@ -107,7 +107,7 @@ function WriteBpm(bpm)
   
   time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   
-  localStorage.setItem(time,bmp);
+  localStorage.setItem(time, bpm);
   return time;
 }
 
