@@ -111,7 +111,7 @@ function WriteBpm(bpm)
   //var today  = new Date();
   var currentDate = new Date();
   time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-] var plainObject = {
+  var plainObject = {
     currentTime: time,
     bitpermin: bpm
   };
