@@ -51,7 +51,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #4th"
+deviceInfo.innerText = "Device #5th"
 function SearchBT()
 {
     writeData = true;
