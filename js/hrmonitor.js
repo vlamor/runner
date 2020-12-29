@@ -51,7 +51,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #7th"
+deviceInfo.innerText = "Device #8th"
 function SearchBT()
 {
     writeData = true;
@@ -84,7 +84,10 @@ function handleCharacteristicValueChanged(event) {
   var res = parseValue(value);
   var bpm = res.heartRate;
   var rrData  = res.rrIntervals;
-  deviceInfo.innerHTML = bpm + " " + WriteBpm(bpm);
+  if(writeData)
+  {
+    deviceInfo.innerHTML = bpm + " " + WriteBpm(bpm);
+  }
   rrInfo.innerHTML     = rrData;
   
   if(bpm > 90 && highHR)
