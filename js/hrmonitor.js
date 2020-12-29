@@ -51,7 +51,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #9th"
+deviceInfo.innerText = "Version #10th"
 function SearchBT()
 {
     writeData = true;
@@ -108,8 +108,8 @@ function handleCharacteristicValueChanged(event) {
 //var data = [];
 function WriteBpm(bpm)
 {
-  //var today  = new Date();
-  var currentDate = new Date();
+  var today  = new Date();
+  //var currentDate = new Date();
   time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var plainObject = {
     currentTime: time,
