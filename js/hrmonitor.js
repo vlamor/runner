@@ -51,7 +51,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Device #8th"
+deviceInfo.innerText = "Device #9th"
 function SearchBT()
 {
     writeData = true;
@@ -105,29 +105,47 @@ function handleCharacteristicValueChanged(event) {
   }
   //console.log(parseValue(value));
 }
-var data = [];
+//var data = [];
 function WriteBpm(bpm)
 {
-  var today  = new Date();
-  
+  //var today  = new Date();
+  var currentDate = new Date();
   time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  
+] var plainObject = {
+    currentTime: time,
+    bitpermin: bpm
+  };
   if(writeData)
   {
-    sessionStorage.setItem(time, bpm);
+    sessionStorage.setItem(
+      time,
+      JSON.stringify(plainObject)
+    );
   }
-  return time;
 }
 
 function Stop()
 {
-  console.log(sessionStorage.length);
+  var keys = Object.keys(sessionStorage);
+  var i = 0;
+  var key;
+  console.log("---------------------------------");
+  console.log(keys.length);
+  for (; (key = keys[i]); i++) {
+    var fromSSJSON = sessionStorage.getItem(key);
+    //myField.innerHTML = JSON.parse(fromSS).myStaticField;
+    var fromSS = JSON.parse(fromSSJSON);
+    console.log(key + " - " + fromSSJSON);
+    //console.log("2 - " + fromSS.minute);
+    //console.log("3 - " + fromSS.second);
+  }
+  /* console.log(sessionStorage.length);
   for (var i = 0; i < sessionStorage.length; i++)
   {
     //document.body.append(sessionStorage.getItem(sessionStorage.key(i)));
     console.log(`${sessionStorage.getItem(sessionStorage.key(i))}`);
   }
   writeData = false;
-  sessionStorage.clear();
+  sessionStorage.clear(); */
 }
 
