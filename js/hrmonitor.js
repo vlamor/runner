@@ -51,7 +51,7 @@ parseValue = (value) => {
 
 var deviceInfo = document.getElementById('Device')
 var rrInfo     = document.getElementById('rrValue')
-deviceInfo.innerText = "Version #10th"
+deviceInfo.innerText = "Version #11th"
 function SearchBT()
 {
     writeData = true;
@@ -122,6 +122,8 @@ function WriteBpm(bpm)
       JSON.stringify(plainObject)
     );
   }
+
+  return time;
 }
 
 function Stop()
@@ -144,8 +146,8 @@ function Stop()
   {
     //document.body.append(sessionStorage.getItem(sessionStorage.key(i)));
     console.log(`${sessionStorage.getItem(sessionStorage.key(i))}`);
-  }
+  }*/
   writeData = false;
-  sessionStorage.clear(); */
+  sessionStorage.clear(); 
 }
 
