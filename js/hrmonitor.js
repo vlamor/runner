@@ -13,6 +13,7 @@ var options =
 
 var highHR = true;
 var lowHR  = true;
+var writeData = true;
 
 var time;
 
@@ -53,6 +54,7 @@ var rrInfo     = document.getElementById('rrValue')
 deviceInfo.innerText = "Device #4th"
 function SearchBT()
 {
+    writeData = true;
     navigator.bluetooth.requestDevice(options) //{filters:[{services:[ 'heart_rate' ]}]}
     .then((device) => 
     {
@@ -107,18 +109,22 @@ function WriteBpm(bpm)
   
   time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   
-  localStorage.setItem(time, bpm);
+  if(writeData)
+  {
+    sessionStorage.setItem(time, bpm);
+  }
   return time;
 }
 
 function Stop()
 {
-  console.log(localStorage.length);
-  for (var i = 0; i < localStorage.length; i++)
+  console.log(sessionStorage.length);
+  for (var i = 0; i < sessionStorage.length; i++)
   {
-    //document.body.append(localStorage.getItem(localStorage.key(i)));
-    console.log(`${localStorage.getItem(localStorage.key(i))}`);
+    //document.body.append(sessionStorage.getItem(sessionStorage.key(i)));
+    console.log(`${sessionStorage.getItem(sessionStorage.key(i))}`);
   }
-  localStorage.clear();
+  writeData = false;
+  sessionStorage.clear();
 }
 
